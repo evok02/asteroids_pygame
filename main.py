@@ -13,7 +13,6 @@ import sys
 def main():
 
     pygame.init()
-    #set frame rate
     clock = pygame.time.Clock()
     dt = 0
 
@@ -49,6 +48,12 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+            
+            for shot in shots:
+                if shot.collides_with(obj):
+                    log_event("asteroid_shot")
+                    obj.split()
+                    shot.kill()
 
         screen.fill("black")
         
